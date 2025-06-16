@@ -1,0 +1,1 @@
+console.log(executionProbability(99.8, 100));
