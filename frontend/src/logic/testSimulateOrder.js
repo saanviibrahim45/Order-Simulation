@@ -1,4 +1,4 @@
-import { simulateOrder } from './simulateOrder.js'; // adjust path if needed
+const { simulateOrder } = require('./simulateOrder.js');
 
 const bids = [
   { price: 99.0, volume: 10 },

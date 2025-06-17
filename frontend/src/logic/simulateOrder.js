@@ -1,4 +1,4 @@
-export function simulateOrder(orderType, side, size, price, bids, asks) {
+function simulateOrder(orderType, side, size, price, bids, asks) {
   let filledPercent = 0;
   let avgPrice = 0;
   let slippage = 0;
@@ -115,3 +115,5 @@ export function simulateOrder(orderType, side, size, price, bids, asks) {
     slippage: slippage,
   };
 }
+
+module.exports = { simulateOrder };

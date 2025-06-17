@@ -3,7 +3,7 @@
 //your quote is from the mid-price. The execution prob proxy is Pexec(quote's dist from mid-price)=
 //1-e^-(base arrival rate (ex:0.5 or 1))(e^-(how fast arrival rates decay w/ dist (ex: 1 or 1.5))
 //(quote's dist from mid-price)) * (time horizon)
-function executionProb(limitPrice,midprice){
+function executionProb(limitPrice,midPrice){
 
     const delta = Math.abs(limitPrice - midPrice); //quote’s distance from the mid-price
     const A = 1.0; //base arrival rate (e.g. 0.5 or 1)
@@ -16,3 +16,5 @@ function executionProb(limitPrice,midprice){
     return prob;
 
 }
+
+module.exports = { executionProb };
