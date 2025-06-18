@@ -33,12 +33,25 @@ const [size, setSize] = useState(10); // number of shares
 const [price, setPrice] = useState(100); // limit price (optional for market)
 const [result, setResult] = useState(null); // simulation result
 
-
 //middle of highest bid price and lowest ask price (best bid and ask prices)
 const midPrice = (bestBid + bestAsk) / 2;
+
+<OrderForm
+  orderType={orderType}
+  setOrderType={setOrderType}
+  side={side}
+  setSide={setSide}
+  size={size}
+  setSize={setSize}
+  price={price}
+  setPrice={setPrice}
+  handleSubmit={handleSubmit}
+/>
+
 function handleSubmit(e) {
   e.preventDefault(); // prevent page reload
 
   const output = simulateOrder(orderType, side, size, price, bids, asks);
   setResult(output);
 }
+{result && <ExecutionResult result={result} />}
