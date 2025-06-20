@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Order-Simulation/static/css/main.5f710ab8.css",
+    "main.js": "/Order-Simulation/static/js/main.1b217af6.js",
+    "index.html": "/Order-Simulation/index.html",
+    "main.5f710ab8.css.map": "/Order-Simulation/static/css/main.5f710ab8.css.map",
+    "main.1b217af6.js.map": "/Order-Simulation/static/js/main.1b217af6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f710ab8.css",
+    "static/js/main.1b217af6.js"
+  ]
+}
