@@ -1,26 +1,13 @@
-import React from 'react';
+import React from 'react'; 
 
-// 1. Build OrderForm.jsx (30%)
-// You need the UI where the user:
-
-// selects orderType (market/limit)
-// selects side (buy/sell)
-// enters size
-// enters price
-// hits Submit (which calls your handleSubmit)
-
-//function OrderForm is receiving one object as
-//its argument, and then extracting these keys from it directly.
-function OrderForm(props){
-        const orderType = props.orderType;
-        const setOrderType = props.setOrderType;
-        const size = props.setSize;
-        const price = props.setPrice;
-        const handleSubmit = props.handleSubmit;
-
-}
-
-return (
+function OrderForm({
+  orderType, setOrderType,
+  side, setSide,
+  size, setSize,
+  price, setPrice,
+  handleSubmit
+}) {
+  return (
     <form onSubmit={handleSubmit} className="order-form">
       <h3>Order Entry</h3>
 
@@ -67,4 +54,3 @@ return (
 }
 
 export default OrderForm;
-

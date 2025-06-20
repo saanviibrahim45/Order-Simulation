@@ -3,55 +3,62 @@ import OrderForm from './components/OrderForm';
 import OrderBook from './components/OrderBook';
 import ExecutionResult from './components/ExecutionResult';
 import { simulateOrder } from './logic/simulateOrder';
-import { executionProb } from './logic/executionProb';
 import './styles.css';
 
-//-----------------------------------------Mock data------------------------------------------------
+function App() {
 
-const bids = [
-  { price: 99.0, volume: 10 },
-  { price: 98.5, volume: 15 },
-  { price: 98.0, volume: 20 }
-];
+//------------------------------------------------------- Mock Data ---------------------------------------------------------------------
+  const bids = [
+    { price: 99.0, volume: 10 },
+    { price: 98.5, volume: 15 },
+    { price: 98.0, volume: 20 }
+  ];
 
-const asks = [
-  { price: 100.0, volume: 10 },
-  { price: 100.5, volume: 15 },
-  { price: 101.0, volume: 20 }
-];
-// the "..." is spread operator: spreads all the key-value pairs into the component
-//ex: const props = { size: "large", disabled: true };
-// <Button {...props} /> is shorthand for <Button size="large" disabled={true} />
-//(basically a copy) and then you add what you need to
-const bestBid = Math.max(...bids.map(b => b.price));
-const bestAsk = Math.min(...asks.map(a => a.price));
+  const asks = [
+    { price: 100.0, volume: 10 },
+    { price: 100.5, volume: 15 },
+    { price: 101.0, volume: 20 }
+  ];
 
-// initializing the input field with a starting/default value (the user can still change it)
-const [orderType, setOrderType] = useState('market'); 
-const [side, setSide] = useState('buy'); 
-const [size, setSize] = useState(10); // number of shares
-const [price, setPrice] = useState(100); // limit price (optional for market)
-const [result, setResult] = useState(null); // simulation result
+  const bestBid = Math.max(...bids.map(b => b.price));
+  const bestAsk = Math.min(...asks.map(a => a.price));
+  const midPrice = (bestBid + bestAsk) / 2;
 
-//middle of highest bid price and lowest ask price (best bid and ask prices)
-const midPrice = (bestBid + bestAsk) / 2;
+  const [orderType, setOrderType] = useState('market'); 
+  const [side, setSide] = useState('buy'); 
+  const [size, setSize] = useState(10); 
+  const [price, setPrice] = useState(100); 
+  const [result, setResult] = useState(null); 
 
-<OrderForm
-  orderType={orderType}
-  setOrderType={setOrderType}
-  side={side}
-  setSide={setSide}
-  size={size}
-  setSize={setSize}
-  price={price}
-  setPrice={setPrice}
-  handleSubmit={handleSubmit}
-/>
+  //the callback function that will run when the form is submitted (so the UI doesn't clear and the app doesn't 
+  //reset everytime form submitted)
+  function handleSubmit(e) {
+    e.preventDefault();
+    const output = simulateOrder(orderType, side, size, price, bids, asks);
+    setResult(output);
+  }
 
-function handleSubmit(e) {
-  e.preventDefault(); // prevent page reload
+  return (
+    <div className="App">
+      <h1>FlowLens Simulator</h1>
 
-  const output = simulateOrder(orderType, side, size, price, bids, asks);
-  setResult(output);
+      <OrderForm
+        orderType={orderType}
+        setOrderType={setOrderType}
+        side={side}
+        setSide={setSide}
+        size={size}
+        setSize={setSize}
+        price={price}
+        setPrice={setPrice}
+        handleSubmit={handleSubmit}
+      />
+
+      <OrderBook bids={bids} asks={asks} midPrice={midPrice} />
+
+      {result && <ExecutionResult result={result} />}
+    </div>
+  );
 }
-{result && <ExecutionResult result={result} />}
+
+export default App;

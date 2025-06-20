@@ -1,6 +1,8 @@
+//add the rendering of the app here 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './app';
-import './styles.css'; // optional: if you have global styles
+import App from './app'; // import your main component
+import './styles.css';   // optional styling
 
-//add the rendering of the app here 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
