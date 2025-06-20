@@ -1,28 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
 import React, { useState } from 'react';
 import OrderForm from './components/OrderForm';
 import OrderBook from './components/OrderBook';
@@ -64,8 +39,9 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>FlowLens Simulator</h1>
+    <div>
+    <h1 className="page-title">Order Simulator</h1>
+    <div className="card">
 
       <OrderForm
         orderType={orderType}
@@ -78,10 +54,16 @@ function App() {
         setPrice={setPrice}
         handleSubmit={handleSubmit}
       />
+      <div className="card">
+        <OrderBook bids={bids} asks={asks} midPrice={midPrice} />
+      </div>
 
-      <OrderBook bids={bids} asks={asks} midPrice={midPrice} />
-
-      {result && <ExecutionResult result={result} />}
+      {result && (
+        <div className="card">
+          <ExecutionResult result={result} />
+        </div>
+      )}
+    </div>
     </div>
   );
 }

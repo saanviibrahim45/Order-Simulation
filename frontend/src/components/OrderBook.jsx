@@ -2,12 +2,12 @@ import React from 'react';
 
 function OrderBook({ bids, asks, midPrice }) {
   return (
-    <div>
+    <div className="order-book">
       <h3>Order Book</h3>
       <p><strong>Mid Price:</strong> ${midPrice.toFixed(2)}</p>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '20px' }}>
-        <div>
+      <div className="order-book-rows">
+        <div className="order-book-section">
           <h4>Bids</h4>
           <ul>
             {bids.map((bid, index) => (
@@ -18,7 +18,7 @@ function OrderBook({ bids, asks, midPrice }) {
           </ul>
         </div>
 
-        <div>
+        <div className="order-book-section">
           <h4>Asks</h4>
           <ul>
             {asks.map((ask, index) => (
@@ -34,6 +34,7 @@ function OrderBook({ bids, asks, midPrice }) {
 }
 
 export default OrderBook;
+
 
 
 

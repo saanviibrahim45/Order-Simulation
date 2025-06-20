@@ -1,0 +1,150 @@
+/* ---------- GLOBAL DARK THEME ---------- */
+:root {
+    --bg-primary: #0e0e0e;     /* page background */
+    --bg-card:    #1a1a1a;     /* cards */
+    --text-main:  #f1f1f1;     /* normal text */
+    --text-dim:   #b3b3b3;     /* secondary text */
+    --accent:     #2b7df7;     /* buttons / highlights */
+    --border:     #2d2d2d;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* ---------- PAGE WRAPPER ---------- */
+  .App {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .App h1 {
+    text-align: center;
+    font-size: 2.75rem;
+    margin-bottom: 0;
+    color: var(--text-main);
+  }
+  
+  
+  /* “card” utility wrapper */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.35);
+  }
+
+  .card h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: var(--text-main);
+  }  
+  .page-title {
+    text-align: center;
+    font-size: 2.75rem;
+    color: var(--text-main);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  
+  
+  /* ---------- ORDER FORM ---------- */
+  .order-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-end;
+    margin-left: 11px; 
+  }
+  
+  
+  .order-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: var(--text-dim);
+  }
+  
+  .order-form input,
+  .order-form select {
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #111;
+    color: var(--text-main);
+  }
+  
+  .order-form input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .order-form button {
+    padding: 10px 18px;
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .order-form button:hover {
+    background: #1e60c3;
+  }
+  
+  /* ---------- ORDER BOOK ---------- */
+  .order-book {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .order-book-section h4 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+  
+  .order-book-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .order-book-section li {
+    padding: 2px 0;
+    font-size: 0.95rem;
+  }
+  .order-form h3 {
+    margin-bottom: 40px;
+  }
+  
+  /* ---------- EXECUTION RESULT ---------- */
+  .execution-result h3 {
+    margin-top: 0;
+    color: var(--accent);
+  }
+  
+  .execution-result p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+  }
+  
+  .execution-result strong {
+    color: var(--text-dim);
+  }
+  
+        
+  

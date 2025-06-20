@@ -9,8 +9,9 @@ function OrderForm({
 }) {
   return (
     <form onSubmit={handleSubmit} className="order-form">
-      <h3>Order Entry</h3>
-
+      <div className = "order-form">
+        <h3>Order Entry</h3>
+      </div>
       <label>
         Order Type:
         <select value={orderType} onChange={e => setOrderType(e.target.value)}>
@@ -50,6 +51,7 @@ function OrderForm({
 
       <button type="submit">Submit Order</button>
     </form>
+    
   );
 }
 
